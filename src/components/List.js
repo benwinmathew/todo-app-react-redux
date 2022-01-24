@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import { useDispatch } from 'react-redux';
-import {delItem,completeItem} from '../redux/content/contentActions';
+import {deleteItem,completeItem} from '../redux/content/contentActions';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const List = (props) => {
@@ -24,7 +24,7 @@ const List = (props) => {
                 }} /> Completed</h6>)}
           {""}{props.content}
 
-          {props.name !== "delete" && <p><button onClick={() => { dispatch(delItem(props.id)) }}>Delete</button></p>}
+          {props.name !== "delete" && <p><button onClick={() => { dispatch(deleteItem(props.id)) }}>Delete</button></p>}
         </li>
       </div>
     </ul>

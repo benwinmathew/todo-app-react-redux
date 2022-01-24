@@ -21,10 +21,12 @@ const Input = () => {
 
     function handleNote() {
         dispatch(addItem(item))
-        setItem({  isCompleted: false,
+        setItem({  
+            isCompleted: false,
             isDeleted: false,
             id: Math.floor(Math.random() * 100),
-            content: ""})
+            content: ""
+        })
     }
 
     return <div>

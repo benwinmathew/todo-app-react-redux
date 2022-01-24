@@ -1,4 +1,4 @@
-import { ADD_ITEM, DEL_ITEM, COMPLETE_ITEM } from './contentTypes';
+import { ADD_ITEM, DELETE_ITEM, COMPLETE_ITEM } from './contentTypes';
 
 export const addItem = (item) => (dispatch) => {
     return dispatch({
@@ -7,16 +7,16 @@ export const addItem = (item) => (dispatch) => {
     })
 }
 
-export const delItem = (id) =>(dispatch)=> {
+export const deleteItem = (id) =>(dispatch)=> {
     return dispatch({
-        type: DEL_ITEM,
-        payload:id
+        type: DELETE_ITEM,
+        payload: id
     })
 }
 
 export const completeItem = (id) =>(dispatch)=> {
     return dispatch({
         type: COMPLETE_ITEM,
-        payload:id
+        payload: id
     })
 }
