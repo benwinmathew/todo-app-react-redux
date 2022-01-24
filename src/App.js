@@ -10,9 +10,7 @@ import { useSelector } from "react-redux";
 
 
 function App() {
-  useEffect(() => {
-    localStorage.clear()
-  }, [])
+ 
   const [item, setItem] = useState('all')
   const items = useSelector(state => state['addReducer'])
   function ListItems() {
