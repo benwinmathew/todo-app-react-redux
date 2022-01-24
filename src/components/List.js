@@ -1,12 +1,13 @@
 import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import { useDispatch } from 'react-redux';
+import {delItem,completeItem} from '../redux/content/contentActions';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const List = (props) => {
   const dispatch = useDispatch()
 
-  return <div>
+  return <div key={props.id}>
     <ul className="list-container">
       <div>
         <li>
@@ -14,20 +15,20 @@ const List = (props) => {
             <h6>
 
               <Checkbox {...label} size="small"
-                checked={localStorage.getItem(props.content) || props.name === "complete" ? true : false}
-                disabled={localStorage.getItem(props.content) || props.name === "complete" ? true : false}
+                checked={props.isCompleted}
+                disabled={props.isCompleted}
                 onClick={() => {
-                  
-                  dispatch({ type: "COMPLETE_ITEM", payload: props.content })
-                  localStorage.setItem(props.content, props.content);
+
+                  dispatch(completeItem(props.id))
+
                 }} /> Completed</h6>)}
           {""}{props.content}
 
-          {props.name !== "delete" && <p><button onClick={() => { dispatch({ type: "DEL_ITEM", payload: props.content }) }}>Delete</button></p>}
+          {props.name !== "delete" && <p><button onClick={() => { dispatch(delItem(props.id)) }}>Delete</button></p>}
         </li>
       </div>
     </ul>
-    <br/>
+    <br />
   </div>;
 };
 
