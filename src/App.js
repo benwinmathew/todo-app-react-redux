@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "./components/Input";
 import List from "./components/List";
 import Radio from '@mui/material/Radio';
@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 function App() {
 
   const [item, setItem] = useState('all')
-  const items = useSelector(state => state['addReducer'])
+  const items = useSelector(state => state['contentReducer'])
   function ListItems() {
 
     return (
